@@ -1,0 +1,37 @@
+{
+  "skill": "closed-interval-continuity-toolkit",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "证明方程 x^3-4x^2+1=0 在 (0,1) 内至少有一个根。",
+      "expected_behavior": "调用本 skill，验证 [0,1] 连续且端点异号，用零点定理。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "f 在 [a,b] 上连续，f(a)=1, f(b)=5，为什么它一定取到 3？",
+      "expected_behavior": "调用本 skill，使用介值定理。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "闭区间上的连续函数一定有最大值吗？需要什么条件？",
+      "expected_behavior": "调用本 skill，说明闭区间和连续性。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "判断 (x^2-1)/(x-1) 在 x=1 的间断点类型。",
+      "expected_behavior": "应调用 continuity-discontinuity-diagnostics。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "f 在 (0,1) 上连续，能否保证有最大值？",
+      "expected_behavior": "调用本 skill 说明不能，缺少闭区间条件。"
+    }
+  ]
+}
+

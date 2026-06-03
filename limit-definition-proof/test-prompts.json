@@ -1,0 +1,37 @@
+{
+  "skill": "limit-definition-proof",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "用 epsilon-N 定义证明数列 1/n 的极限是 0。",
+      "expected_behavior": "调用本 skill，反推 n>1/epsilon，并按定义书写。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "请用 epsilon-delta 证明 lim x->2 (3x-1)=5。",
+      "expected_behavior": "调用本 skill，把 |3x-1-5| 化为 3|x-2|。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么证明连续时要让 |f(x)-f(x0)| 小于任意 epsilon？",
+      "expected_behavior": "调用本 skill，解释连续定义的量词结构。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "求 lim x->0 tan(2x)/sin(5x)。",
+      "expected_behavior": "这是计算题，应调用 equivalent-infinitesimal-substitution。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "证明 lim x->0 sin x / x = 1。",
+      "expected_behavior": "若用户要求定义证明，可调用；否则优先调用 limit-existence-criteria 的夹逼准则。"
+    }
+  ]
+}
+

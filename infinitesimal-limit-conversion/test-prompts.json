@@ -1,0 +1,37 @@
+{
+  "skill": "infinitesimal-limit-conversion",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "怎么用无穷小证明 lim f(x)=A 等价于 f(x)=A+alpha？",
+      "expected_behavior": "调用本 skill，构造 alpha=f(x)-A 并说明双向关系。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "已知 alpha 和 beta 都是 x->0 时的无穷小，为什么 alpha+beta 还是无穷小？",
+      "expected_behavior": "调用本 skill，用无穷小代数说明。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "判断 x->0 时 1/x 是否为无穷大，可以怎么转化？",
+      "expected_behavior": "调用本 skill，使用倒数与无穷小关系。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用等价无穷小求 lim x->0 tan 3x / sin 2x。",
+      "expected_behavior": "应调用 equivalent-infinitesimal-substitution。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "求一个 0/0 型极限。",
+      "expected_behavior": "如果只是识别为无穷小之比，可转到 equivalent-infinitesimal-substitution 或 limit-operation-and-substitution。"
+    }
+  ]
+}
+

@@ -1,0 +1,37 @@
+{
+  "skill": "continuity-discontinuity-diagnostics",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "判断 f(x)=(x^2-1)/(x-1) 在 x=1 的间断点类型，并说明能否补定义。",
+      "expected_behavior": "调用本 skill，指出极限存在但原函数无定义，是可去间断点。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "分段函数在 x=0 左右表达式不同，怎么选参数 a 才连续？",
+      "expected_behavior": "调用本 skill，计算左右极限并令其等于函数值。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "左右极限都存在但不相等，这是什么间断点？",
+      "expected_behavior": "调用本 skill，判定为跳跃间断点。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "证明连续函数在闭区间上一定有最大值和最小值。",
+      "expected_behavior": "应调用 closed-interval-continuity-toolkit。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "讨论 sin(1/x) 在 x=0 附近的连续性。",
+      "expected_behavior": "调用本 skill，指出 x=0 若讨论间断则极限振荡不存在，属于第二类间断。"
+    }
+  ]
+}
+

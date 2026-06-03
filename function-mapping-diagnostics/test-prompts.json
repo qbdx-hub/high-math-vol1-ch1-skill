@@ -1,0 +1,37 @@
+{
+  "skill": "function-mapping-diagnostics",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "求 f(x)=sqrt(ln(1-x)) 的自然定义域，并说明为什么。",
+      "expected_behavior": "调用本 skill，先检查 ln 的定义域，再检查 sqrt 的输入非负。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "f(x)=x^2 在 R 上有没有反函数？如果没有，怎么限制定义域才有？",
+      "expected_behavior": "调用本 skill，指出 R 上非单射，限制到 [0,+infty) 或 (-infty,0] 后可求反函数。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "已知 f 的定义域是 [0,1]，求 f(cos x) 的定义域。",
+      "expected_behavior": "调用本 skill，检查 cos x 的值域是否落入 [0,1]。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "计算 lim x->0 sin x / x。",
+      "expected_behavior": "这是极限计算，应调用极限相关 skill，而不是本 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "讨论分段函数在 x=0 是否连续。",
+      "expected_behavior": "可先用本 skill 检查分段定义，再转入 continuity-discontinuity-diagnostics。"
+    }
+  ]
+}
+

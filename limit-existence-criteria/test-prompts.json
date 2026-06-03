@@ -1,0 +1,37 @@
+{
+  "skill": "limit-existence-criteria",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "用夹逼准则证明 lim x->0 x^2 sin(1/x)=0。",
+      "expected_behavior": "调用本 skill，构造 -x^2 <= x^2 sin(1/x) <= x^2。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "一个数列已知单调增加且有上界，怎么证明它有极限？",
+      "expected_behavior": "调用本 skill，使用单调有界准则。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "证明一个递推数列收敛，但暂时求不出极限值。",
+      "expected_behavior": "调用本 skill，提示先证单调和有界。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "求 lim x->1 (x^2-1)/(x-1)。",
+      "expected_behavior": "普通计算题，应调用 limit-operation-and-substitution。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个数列有界，所以它一定收敛吗？",
+      "expected_behavior": "调用本 skill 纠错：有界是必要条件，不是充分条件。"
+    }
+  ]
+}
+

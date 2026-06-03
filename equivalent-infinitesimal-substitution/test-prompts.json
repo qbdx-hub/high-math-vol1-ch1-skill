@@ -1,0 +1,37 @@
+{
+  "skill": "equivalent-infinitesimal-substitution",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "求 lim x->0 tan(2x)/sin(5x)。",
+      "expected_behavior": "调用本 skill，用 tan(2x)~2x、sin(5x)~5x。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "求 lim x->0 ln(1+3x)/(e^(2x)-1)。",
+      "expected_behavior": "调用本 skill，用 ln(1+3x)~3x、e^(2x)-1~2x。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "判断 x->0 时 1-cos x 和 x 是否等价无穷小。",
+      "expected_behavior": "调用本 skill，比较比值并指出不是等价，且 1-cos x 是更高阶。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用 epsilon-delta 证明 lim x->0 3x=0。",
+      "expected_behavior": "应调用 limit-definition-proof。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "求 lim x->0 (sin x - x)/x。",
+      "expected_behavior": "不要直接把 sin x 替换为 x 后结束；需要说明一阶等价不足以处理差式主项抵消。"
+    }
+  ]
+}
+

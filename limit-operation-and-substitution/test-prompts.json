@@ -1,0 +1,37 @@
+{
+  "skill": "limit-operation-and-substitution",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "求 lim x->1 (x^2-1)/(x-1)。",
+      "expected_behavior": "调用本 skill，识别 0/0，因式分解约分。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "求 lim x->0 ln(1+2x)/x，可以怎么换元？",
+      "expected_behavior": "调用本 skill，使用变量代换和重要极限。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么 lim x->0 sqrt(1+x)=1 可以直接代入？",
+      "expected_behavior": "调用本 skill，说明连续函数在定义区间内可代入。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "证明一个单调有界数列必有极限。",
+      "expected_behavior": "应调用 limit-existence-criteria。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "求 lim x->0 tan 2x / sin 5x。",
+      "expected_behavior": "可调用本 skill 路由，但具体计算应转 equivalent-infinitesimal-substitution。"
+    }
+  ]
+}
+
